@@ -8,7 +8,7 @@
 CARLIFY is a full-stack web application that enables users to buy and sell second-hand vehicles seamlessly. It includes AI-powered **price estimation** and **fraud detection** to ensure safe and fair transactions.
 
 ## 🚀 Live Demo
-🔗 [Frontend](https://carlify-by-malviyarohitttt.vercel.app/)  
+🔗 [Frontend](https://rahul-carlify.vercel.app/)  
 🔗 [Backend](https://carlify-malviyarohitttt.onrender.com/)
 
 ## 🛠️ Features
