@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { UserContext } from "./UserContextProvider";
 import toast from "react-hot-toast";
 
@@ -26,7 +26,7 @@ function AdminContextProvider({ children }) {
     const [isLoading, setIsLoading] = useState(true);
 
 
-    const loadData = async () => {
+    const loadData = useCallback(async () => {
         try {
             let response = await axios.get(`${ApiEndPoint}/admin/totalData`);
             if (response?.data?.status) {
@@ -39,9 +39,9 @@ function AdminContextProvider({ children }) {
         } catch (error) {
             console.log(error);
         }
-    };
+    }, [ApiEndPoint]);
 
-    const getUsers = async () => {
+    const getUsers = useCallback(async () => {
         try {
             let response = await axios.get(
                 `${ApiEndPoint}/admin/getUsers/${currentPageUser}`
@@ -55,9 +55,9 @@ function AdminContextProvider({ children }) {
         } catch (error) {
             console.log(error);
         }
-    };
+    }, [ApiEndPoint, currentPageUser]);
 
-    const deleteUser = async (id) => {
+    const deleteUser = useCallback(async (id) => {
         if (window.confirm("Are you sure you want to delete this user?")) {
             try {
                 let response = await axios.delete(
@@ -73,9 +73,9 @@ function AdminContextProvider({ children }) {
                 console.log(error);
             }
         }
-    };
+    }, [ApiEndPoint, getUsers]);
 
-    const getCars = async () => {
+    const getCars = useCallback(async () => {
         try {
             let response = await axios.get(
                 `${ApiEndPoint}/admin/getAllCars/${currentPageCar}`
@@ -89,20 +89,20 @@ function AdminContextProvider({ children }) {
         } catch (error) {
             console.log(error);
         }
-    };
+    }, [ApiEndPoint, currentPageCar]);
 
     useEffect(() => {
         loadData();
-    }, []);
+    }, [loadData]);
 
 
     useEffect(() => {
         getUsers();
-    }, [currentPageUser]);
+    }, [getUsers]);
 
     useEffect(() => {
         getCars();
-    }, [currentPageCar]);
+    }, [getCars]);
 
 
     return (

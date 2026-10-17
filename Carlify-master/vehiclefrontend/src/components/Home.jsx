@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
 import "./Home.css";
@@ -26,7 +26,7 @@ const Home = () => {
   const [homePageData, setHomePageData] = useState([]);
   let { featuredCars, recentCars } = homePageData;
 
-  const fatchData = async () => {
+  const fatchData = useCallback(async () => {
     try {
       let response = await axios.get(`${ApiEndPoint}/homePageData`);
       if (response?.data?.status) {
@@ -38,11 +38,11 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [ApiEndPoint]);
 
   useEffect(() => {
     fatchData();
-  }, []);
+  }, [fatchData]);
 
   return (
     <>

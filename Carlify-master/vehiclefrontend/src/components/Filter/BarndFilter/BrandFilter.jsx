@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { CarContext } from "../../Context/CarContextProvider";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const brands = [
@@ -18,14 +16,9 @@ const brands = [
 ];
 
 const BrandFilter = () => {
-  const { setSelectedBrand } = useContext(CarContext);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const scrollContainerRef = useRef(null);
-
-  const handleBrandClick = (brand) => {
-    setSelectedBrand(brand === "All" ? null : brand);
-  };
 
   const scroll = (direction) => {
     const container = scrollContainerRef.current;

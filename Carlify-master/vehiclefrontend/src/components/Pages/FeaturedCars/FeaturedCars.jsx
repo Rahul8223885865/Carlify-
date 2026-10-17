@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import { Gauge, IndianRupee } from "lucide-react";
@@ -11,7 +11,7 @@ function FeaturedCars() {
   let { ApiEndPoint } = useContext(UserContext);
   const [FeaturedCars, setFeaturedCars] = useState([]);
 
-  const facthFeaturedCars = async () => {
+  const facthFeaturedCars = useCallback(async () => {
     try {
       let response = await axios.get(`${ApiEndPoint}/car/featured-cars`);
       if (response?.data?.status) {
@@ -22,11 +22,11 @@ function FeaturedCars() {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [ApiEndPoint]);
 
   useEffect(() => {
     facthFeaturedCars();
-  }, []);
+  }, [facthFeaturedCars]);
 
   return (
     <div>

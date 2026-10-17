@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect, useContext, useCallback } from "react";
 import toast from "react-hot-toast";
 import { UserContext } from "./UserContextProvider";
 
@@ -12,7 +12,7 @@ function CarContextProvider({ children }) {
 
 
 
-    const loadMyListings = async () => {
+    const loadMyListings = useCallback(async () => {
         try {
             let url = `${ApiEndPoint}/car/getallcars`
 
@@ -30,11 +30,11 @@ function CarContextProvider({ children }) {
                 setLoading(false);
             }, [100]);
         }
-    }
+    }, [ApiEndPoint]);
 
     useEffect(() => {
         loadMyListings();
-    }, []);
+    }, [loadMyListings]);
 
     return (
         <CarContext.Provider value={{ carList, loading, setCarList }}>

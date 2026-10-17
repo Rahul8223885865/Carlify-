@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import Footer from "../../Footer/Footer";
 import UserNavbar from "../../UserDashboard/UserNavBar";
 import axios from "axios";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const UserProfile = () => {
   let User = sessionStorage.getItem("user");
   User = JSON.parse(User);
+  const userId = User?._id;
 
   const { ApiEndPoint } = useContext(UserContext);
   let navigate = useNavigate();
@@ -24,11 +25,11 @@ const UserProfile = () => {
 
   const [vehicles, setVehicles] = useState([]);
 
-  const fatchUserData = async () => {
+  const fatchUserData = useCallback(async () => {
     let token = sessionStorage.getItem("token");
     try {
       let response = await axios.get(
-        `${ApiEndPoint}/users/users-profile-data/${User._id}`,
+        `${ApiEndPoint}/users/users-profile-data/${userId}`,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -42,11 +43,11 @@ const UserProfile = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [ApiEndPoint, userId]);
 
   useEffect(() => {
     fatchUserData();
-  }, []);
+  }, [fatchUserData]);
 
   return (
     <>

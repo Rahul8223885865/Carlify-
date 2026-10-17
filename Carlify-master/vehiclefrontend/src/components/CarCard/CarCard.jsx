@@ -15,7 +15,6 @@ function CarCard({ car }) {
     color,
     fuelType,
     price,
-    Featured,
   } = car;
 
   return (

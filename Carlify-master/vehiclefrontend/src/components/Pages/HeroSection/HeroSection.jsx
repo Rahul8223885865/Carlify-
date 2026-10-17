@@ -1,5 +1,5 @@
 import React from "react";
-import { Star, Clock, TrendingUp, Search } from "lucide-react";
+import { Star, Clock, TrendingUp } from "lucide-react";
 
 function HeroSection() {
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -12,7 +12,7 @@ function CarBrand() {
 
   const [CarBrandData, setCarBrandData] = useState([]);
 
-  const fatchCarBrand = async () => {
+  const fatchCarBrand = useCallback(async () => {
     try {
       let response = await axios.get(`${ApiEndPoint}/car/brand/${brand}`);
       if (response?.data?.status) {
@@ -24,10 +24,10 @@ function CarBrand() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [ApiEndPoint, brand]);
   useEffect(() => {
     fatchCarBrand();
-  }, []);
+  }, [fatchCarBrand]);
 
   return (
     <div>

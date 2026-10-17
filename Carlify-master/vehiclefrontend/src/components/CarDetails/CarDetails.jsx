@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import {
   Phone,
   Mail,
@@ -14,7 +14,6 @@ import {
   MessageCircle,
   PhoneCall,
   Share2,
-  Heart,
   ChevronRight,
 } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
@@ -46,7 +45,7 @@ function CarDetails() {
     }).format(price);
   };
 
-  const fetchCarDetails = async () => {
+  const fetchCarDetails = useCallback(async () => {
     try {
       let response = await axios.get(
         `${ApiEndPoint}/car/cardetails/${carDetailId}`,
@@ -66,7 +65,7 @@ function CarDetails() {
       console.error("Error fetching car details", error);
       setIsLoading(false);
     }
-  };
+  }, [ApiEndPoint, carDetailId, isAdmin]);
 
   const handleShare = async () => {
     try {
@@ -83,7 +82,7 @@ function CarDetails() {
   useEffect(() => {
     fetchCarDetails();
     window.scrollTo(0, 0);
-  }, [carDetailId]);
+  }, [fetchCarDetails]);
 
   const CarCard = ({ car }) => (
     <Link

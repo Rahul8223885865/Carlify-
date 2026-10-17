@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Car, Menu, X, Search } from "lucide-react";
+import { Car, Menu, X } from "lucide-react";
 
 function UserNavBar() {
   const loggedOut = () => {
@@ -10,16 +10,10 @@ function UserNavBar() {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
 
   const isActive = (path) => {
     return location.pathname === path ? "text-blue-600" : "text-gray-600";
-  };
-
-  const handleSearch = () => {
-    console.log("Search query:", searchQuery);
-    // Add your search logic here
   };
 
   return (
