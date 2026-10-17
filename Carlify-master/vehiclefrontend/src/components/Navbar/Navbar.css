@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-bar {
+  width: 300px;
+  padding: 5px;
+}
+
+.btn {
+  background: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.buttons {
+  color: white;
+  background-color: blue;
+  border-color: black;
+  margin-left: 8px;
+}

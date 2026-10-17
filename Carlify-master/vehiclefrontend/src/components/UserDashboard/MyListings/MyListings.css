@@ -1,0 +1,10 @@
+.row>*{
+  width: 25%;
+}
+ 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+  
