@@ -143,7 +143,7 @@ const UserProfile = () => {
                 <ul className="space-y-2 mb-6">
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       New Arrivals
@@ -151,7 +151,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       Featured Cars
@@ -159,7 +159,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       Sell Your Car
@@ -167,7 +167,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       Car Reviews
@@ -175,7 +175,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       News & Updates
@@ -187,7 +187,7 @@ const UserProfile = () => {
                 <ul className="space-y-2">
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       Help Center
@@ -195,7 +195,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       FAQ
@@ -203,7 +203,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       Privacy Policy
@@ -211,7 +211,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       Terms of Service
@@ -219,7 +219,7 @@ const UserProfile = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/"
                       className="text-indigo-600 hover:text-indigo-800"
                     >
                       Contact Us

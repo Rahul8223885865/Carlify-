@@ -42,7 +42,7 @@ Coming soon...
 ## 🚀 Installation Guide
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/malviyarohitttt/Carlify.git
+   git clone https://github.com/Rahul8223885865/Carlify.git
    ```
 2. **Navigate to the project directory:**
    ```bash
@@ -69,8 +69,8 @@ Coming soon...
 - Enable chat functionality between buyers and sellers.
 
 ## 📬 Contact
-📩 Email: rohitmalviya2324@gmail.com  
-🌐 LinkedIn: [malviyarohitttt](https://www.linkedin.com/in/malviyarohitttt/)
+📩 Email: singhrahul2215@gmail.com
+🌐 LinkedIn: [Rahul singh](https://www.linkedin.com/in/rahul-singh-646703286)
 
 ---
 
