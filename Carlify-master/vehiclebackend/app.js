@@ -17,9 +17,11 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+
 const allowedOrigins = [
-  "https://carlify.vercel.app",
-  'http://localhost:3000'
+  "https://carlify-puce.vercel.app",
+  "https://carlify-t7vg.vercel.app",
+  "http://localhost:3000"
 ];
 
 app.use(cors({
@@ -27,12 +29,13 @@ app.use(cors({
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
 
 
 app.use(logger("dev"));
