@@ -90,38 +90,44 @@ const GetCar = async (req, res, next) => {
   }
 };
 
-const GetAllCars = async (req, res, next) => {
+const GetAllCars = async (req, res) => {
   try {
-    let carData = await Car.find();
-    if (carData.length > 0) {
-      return res.status(200).json({
-        status: true,
-        message: "Car Data Found...",
-        carData: carData,
-      });
-    }
-  } catch (error) {
+    const carData = await Car.find();
+
     return res.status(200).json({
+      status: true,
+      message: carData.length
+        ? "Car Data Found..."
+        : "No cars found",
+      carData
+    });
+
+  } catch (error) {
+    return res.status(500).json({
       status: false,
-      message: error.message,
+      message: error.message
     });
   }
 };
 
-const GetCarByBrand = async (req, res, next) => {
+const GetCarByBrand = async (req, res) => {
   try {
-    let carData = await Car.find({ brand: req.params.brand });
-    if (carData.length > 0) {
-      return res.status(200).json({
-        status: true,
-        message: "Car Data Found...",
-        carData
-      });
-    }
-  } catch (error) {
+    const carData = await Car.find({
+      brand: req.params.brand
+    });
+
     return res.status(200).json({
+      status: true,
+      message: carData.length
+        ? "Car Data Found..."
+        : "No cars found",
+      carData
+    });
+
+  } catch (error) {
+    return res.status(500).json({
       status: false,
-      message: error.message,
+      message: error.message
     });
   }
 };

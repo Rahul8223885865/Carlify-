@@ -98,15 +98,15 @@ function AboutUs() {
             </span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
-              <img
-                src="https://res.cloudinary.com/rohitmalviya2324/image/upload/v1737461741/ProfileImageRohit_klxlzw.png"
-                alt="CEO"
+            <img
+               src="/images/rahul.jpg"
+                alt="Rahul Singh"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-xl font-semibold">Rohit Malviya</h3>
-              <p className="text-blue-600 mb-2">CEO & Founder</p>
+              <h3 className="text-xl font-semibold">Rahul Singh</h3>
+              <p className="text-blue-600 mb-2">Full Stack Developer</p>
               <p className="text-gray-600">
-                Full Stack Developer 
+                Leading our digital transformation initiatives
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
@@ -116,19 +116,19 @@ function AboutUs() {
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
               <h3 className="text-xl font-semibold">Mohit Mehar</h3>
-              <p className="text-blue-600 mb-2">Frontend Developer</p>
+              <p className="text-blue-600 mb-2">Full Stack Developer</p>
               <p className="text-gray-600">
                 Expert in automotive operations and strategy
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="300">
-              <img
+               <img
                 src="https://res.cloudinary.com/rohitmalviya2324/image/upload/v1737461741/ProfileImageRohit_klxlzw.png"
-                alt="CTO"
+                alt="CEO"
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-xl font-semibold">Michael Chen</h3>
-              <p className="text-blue-600 mb-2">Chief Technology Officer</p>
+              <h3 className="text-xl font-semibold">Rohit Malviya</h3>
+              <p className="text-blue-600 mb-2">Full Stack Developer</p>
               <p className="text-gray-600">
                 Leading our digital transformation initiatives
               </p>

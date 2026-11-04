@@ -3,8 +3,7 @@ import React, { createContext, useState } from "react";
 export const UserContext = createContext();
 
 function UserContextProvider({ children }) {
-  const ApiEndPoint = "https://carlify-malviyarohitttt.onrender.com/api/v1";
-  // const ApiEndPoint = "http://localhost:9090/api/v1";
+const ApiEndPoint = "http://localhost:9090/api/v1";    
 
 
   const [filterData, setFilterData] = useState({

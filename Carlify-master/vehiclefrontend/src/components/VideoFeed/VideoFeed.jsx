@@ -1,67 +1,67 @@
-import { useEffect, useState, useRef } from "react";
-import axios from "axios";
+
+import { useEffect, useRef } from "react";
 import Navbar from "../Navbar/Navbar";
 
 const VideoFeed = () => {
-  const [videos, setVideos] = useState([]);
-  const videoRefs = useRef([]);
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const res = await axios.get(
-          "https://carlify-malviyarohitttt.onrender.com/api/videos"
-        );
-        setVideos(res.data);
-      } catch (error) {
-        console.error("Failed to fetch videos:", error);
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch((error) => {
+              console.log("Video autoplay prevented:", error);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.5,
       }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+      video.pause();
     };
-    fetchVideos();
   }, []);
-
-  const handleIntersection = (entries) => {
-    entries.forEach((entry) => {
-      const video = entry.target;
-      if (entry.isIntersecting) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.5,
-    });
-    videoRefs.current.forEach((video) => {
-      if (video) observer.observe(video);
-    });
-
-    return () => observer.disconnect();
-  }, [videos]);
 
   return (
     <>
       <Navbar />
+
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
-        <div className="relative h-screen flex justify-center items-center snap-center">
-            <img src="/public/images/car-logo.png" alt="" srcset="" />
+        <div className="relative h-screen flex justify-center items-center snap-center bg-black">
+
           <video
-            src="/public/Video/Video1.mp4"   
+            ref={videoRef}
+            src="/Video/Video1.mp4"
             className="w-full h-full object-cover"
             loop
             muted
             controls
+            playsInline
           />
+
           <div className="absolute bottom-5 left-5 text-white">
-            <p className="text-lg font-bold">video.title</p>
+            <p className="text-lg font-bold">
+              Carlify - Car Videos
+            </p>
+
             <p className="text-sm">
-              Lorem ipsum dolor sit amet,odio ut voluptatibus ipsum cupiditate.
-              Esse, unde!
+              Explore your favourite cars.
             </p>
           </div>
+
         </div>
       </div>
     </>
