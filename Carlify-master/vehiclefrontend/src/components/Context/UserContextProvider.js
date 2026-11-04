@@ -1,10 +1,10 @@
+
 import React, { createContext, useState } from "react";
 
 export const UserContext = createContext();
 
 function UserContextProvider({ children }) {
-const ApiEndPoint = "http://localhost:9090/api/v1";    
-
+  const ApiEndPoint = "https://carlify-backend-rahul.onrender.com/api/v1";
 
   const [filterData, setFilterData] = useState({
     year: "All",
@@ -12,14 +12,19 @@ const ApiEndPoint = "http://localhost:9090/api/v1";
     color: "All",
     minPrice: "",
     maxPrice: ""
-  })
+  });
 
   const handleChange = (event) => {
-    setFilterData({ ...filterData, [event.target.name]: event.target.value })
-  }
+    setFilterData({
+      ...filterData,
+      [event.target.name]: event.target.value
+    });
+  };
 
   return (
-    <UserContext.Provider value={{ ApiEndPoint, filterData,setFilterData, handleChange }}>
+    <UserContext.Provider
+      value={{ ApiEndPoint, filterData, setFilterData, handleChange }}
+    >
       {children}
     </UserContext.Provider>
   );
